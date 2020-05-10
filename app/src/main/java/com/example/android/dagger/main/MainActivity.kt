@@ -32,9 +32,6 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var userManager: UserManager
-
-    @Inject
     lateinit var mainViewModel: MainViewModel
 
     /**
@@ -43,9 +40,10 @@ class MainActivity : AppCompatActivity() {
      * else carry on with MainActivity
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_settings)
 
+        val userManager = (application as MyApplication).appComponent.userManager()
         if (!userManager.isUserLoggedIn()) {
             if (!userManager.isUserRegistered()) {
                 startActivity(Intent(this, RegistrationActivity::class.java))
