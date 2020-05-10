@@ -17,6 +17,7 @@
 package com.example.android.dagger
 
 import com.example.android.dagger.di.AppComponent
+import com.example.android.dagger.di.DaggerTestAppComponent
 import com.example.android.dagger.storage.FakeStorage
 import com.example.android.dagger.user.UserManager
 
